@@ -1,0 +1,154 @@
+Step welcome
+	Speak 啾咪可爱的小客人~这里是比砂糖橘大只的柑橘~很高兴为您服务~有什么可以帮到你的吗？
+	Listen 10
+	Branch 商品,goodProc
+	Branch 物流,deliveryProc
+	Branch 订单,orderProc
+	Silence silenceProc
+	Default defaultProc
+
+Step goodProc
+	Speak 请问宝子想要咨询关于商品的什么问题呢？
+	Listen 10
+	Branch 价格,priceProc
+	Branch 合格证,proofProc
+	Branch 码,sizeProc
+	Branch 活动,discountProc
+	Silence silenceProc
+	Default defaultProc
+
+Step priceProc
+	Speak 价格和商品主页一致哦~如果有活动的话，加入购物车之后会自动满减的，微博和店铺粉丝群会不定期掉落福利和优惠券哦~宝子还有什么想问的吗？
+	Listen 10
+	Branch 合格证,priceProc
+	Branch 码,proofProc
+	Branch 活动,discountProc
+	Branch 哪种,typeProc
+	Branch 什么快递,typeProc
+	Branch 发货,sendProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step proofProc
+	Speak 都是B类合格证，可以放心穿的哦！宝子还有什么想问的吗？
+	Listen 10
+	Branch 价格,priceProc
+	Branch 码,sizeProc
+	Branch 活动,discountProc
+	Branch 哪种,typeProc
+	Branch 什么快递,typeProc
+	Branch 发货,sendProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step sizeProc
+	Speak 尺码可以在商品详情页的尺码表的基础上结合【自身情况】选择哦~宝子还有什么想问的吗？
+	Listen 10
+	Branch 价格,priceProc
+	Branch 合格证,proofProc
+	Branch 活动,discountProc
+	Branch 哪种,typeProc
+	Branch 什么快递,typeProc
+	Branch 发货,sendProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step discountProc
+	Speak 活动在商品详情页显示哦，宝子可以做一个参考~微博和店铺粉丝群不定期掉落福利和优惠券，可以关注一下哦~宝子还有什么想问的吗？
+	Listen 10
+	Branch 价格,priceProc
+	Branch 合格证,proofProc
+	Branch 码,sizeProc
+	Branch 哪种,typeProc
+	Branch 什么快递,typeProc
+	Branch 发货,sendProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step deliveryProc
+	Speak 请问宝子想要咨询关于物流的什么问题呢？
+	Listen 10
+	Branch 哪种,typeProc
+	Branch 什么快递,typeProc
+	Branch 发货,sendProc
+	Branch 状态,stateProc
+	Silence silenceProc
+	Default defaultProc
+
+Step typeProc
+	Speak 邮政和中通随机发货，不接受指定哦~宝子还有什么想问的吗？
+	Listen 10
+	Branch 价格,priceProc
+	Branch 合格证,proofProc
+	Branch 码,sizeProc
+	Branch 活动,discountProc
+	Branch 发货,sendProc
+	Branch 状态,stateProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step sendProc
+	Speak 下单后商品会在48h内发出~宝子还有什么想问的吗？
+	Listen 10
+	Branch 价格,priceProc
+	Branch 合格证,proofProc
+	Branch 码,sizeProc
+	Branch 活动,discountProc
+	Branch 哪种,typeProc
+	Branch 什么快递,typeProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step stateProc
+	Speak 这边会催一下物流的~宝子还有什么想问的吗？
+	Listen 10
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step orderProc
+	Speak 请问宝子想要咨询关于订单的什么问题呢？
+	Listen 10
+	Branch 退货,returnProc
+	Branch 换货,changeProc
+	Silence silenceProc
+	Default defaultProc
+
+Step returnProc
+	Speak 可以的~退货地址：北京市海淀区北太平庄街道西土城路10号，收件人：果粒橙，收件人电话：11223344。宝子还有什么想问的吗？
+	Listen 10
+	Branch 换货,changeProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step changeProc
+	Speak 可以的~换货地址：北京市海淀区北太平庄街道西土城路10号，收件人：果粒橙，收件人电话：11223344。我们这边收到以后就会为您重新寄出的~宝子还有什么想问的吗？
+	Listen 10
+	Branch 退货,returnProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step endProc
+	Speak 祝您生活愉快~
+	Exit exitProc
+
+Step defaultProc
+	Speak 不好意思宝子，这边没有听清你说什么~你是想要咨询商品、物流还是订单呢~
+	Listen 30
+	Branch 商品,goodProc
+	Branch 物流,deliveryProc
+	Branch 订单,orderProc
+	Silence silenceProc
+	Default defaultProc
+
+Step silenceProc
+	Speak 请问您还在吗？
+	Exit exitProc

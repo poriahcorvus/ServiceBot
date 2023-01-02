@@ -1,0 +1,51 @@
+Step welcomeProc
+	Speak 您好，很高兴为您服务，有什么可以为您效劳的呢？
+	Listen 10
+	Branch 订餐,reserveProc
+	Branch 预订,reserveProc
+	Branch 菜单,menuProc
+	Branch 投诉,complainProc
+	Silence silenceProc
+	Default defaultProc
+
+Step reserveProc
+	Speak 订餐请拨打电话32112202。请问还有什么需要吗？
+	Listen 10
+	Branch 菜单,menuProc
+	Branch 投诉,complainProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step menuProc
+	Speak 查看菜单请到前台，或登录官网。请问还有什么需要吗？
+	Listen 10
+	Branch 订餐,reserveProc
+	Branch 预订,reserveProc
+	Branch 投诉,complainProc
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step complainProc
+	Speak 好的，这边已经为您记录。很抱歉给您带来了不快。请问还有什么需要吗？
+	Listen 10
+	Branch 没,endProc
+	Silence silenceProc
+	Default defaultProc
+
+Step endProc
+	Speak 祝您生活愉快~
+	Exit exitProc
+
+Step silenceProc
+	Speak 那这边就先挂断啦~
+	Exit exitProc
+
+Step defaultProc
+	Speak 不好意思，没有听清您在说什么。您是想说订餐还是投诉？
+	Listen 10
+	Branch 订餐,reserveProc
+	Branch 投诉,complainProc
+	Silence silenceProc
+	Default defaultProc
